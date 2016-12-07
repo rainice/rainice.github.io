@@ -13,8 +13,11 @@ var path = require('path');
 // const app = express();
 var app = (0, _express2.default)();
 
-// app.get('/', (req,res) => res.send("./index.html")); // requires babel
-
+// app.get('/*', (req,res) => res.send("./index.html")); // requires babel
+// app.get('/*', function(req,res) {
+// 	// res.type('.html');              // => 'text/html'
+// 	res.sendFile(__dirname+"/index.html")
+// });
 
 // app.use(express.static('output'));
 // app.use(express.static(path.join(__dirname, 'output')));
@@ -27,12 +30,6 @@ app.use(_express2.default.static(dirname));
 // 	// res.type('.js');              // => 'text/html'
 // 	res.sendFile(__dirname+"/output/bundle.js");
 // });
-
-app.get('/*', function(req,res) {
-	// res.type('.html');              // => 'text/html'
-  console.log(req.originalUrl);
-	// res.sendFile(__dirname+"/../index.html")
-});
 
 app.listen(3000, function () {
   console.log("server running on port 3000.");

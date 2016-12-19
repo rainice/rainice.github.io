@@ -8,10 +8,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // testing babel
 // var express = require('express');
+var compression = require('compression');
 var path = require('path');
 
 // const app = express();
 var app = (0, _express2.default)();
+
+// compress all responses
+app.use(compression());
 
 // app.get('/*', (req,res) => res.send("./index.html")); // requires babel
 // app.get('/*', function(req,res) {
@@ -21,8 +25,7 @@ var app = (0, _express2.default)();
 
 // app.use(express.static('output'));
 // app.use(express.static(path.join(__dirname, 'output')));
-console.log('__dirname: ' + __dirname);
-var dirname = __dirname + '/..'; // to get one level lower
+var dirname = __dirname + '/..'; // to get one level lower. we can use \\.. as well.
 console.log('server running dirname: ' + dirname);
 app.use(_express2.default.static(dirname));
 
